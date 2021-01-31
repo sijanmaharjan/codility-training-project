@@ -1,4 +1,7 @@
-package codility.l1_iterations;
+package codility.l2_arrays;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.Arrays;
 
@@ -11,6 +14,13 @@ import java.util.Arrays;
  * @since 2020-11-02
  */
 public class OddOccurrencesInArray {
+    /**
+     * N is an odd integer within the range [1..1,000,000];
+     * each element of array A is an integer within the range [1..1,000,000,000];
+     * all but one of the values in A occur an even number of times.
+     * @param A
+     * @return
+     */
     public static int solution(int[] A) {
         Arrays.sort(A);
         for(int i=0; i<A.length; i+=2){
@@ -20,7 +30,13 @@ public class OddOccurrencesInArray {
         throw new RuntimeException("No Odd Occurrence");
     }
 
-    public static void main(String[] args) {
-        System.out.println(solution(new int[]{6,4,3,4,3,6,4}));
+    @Test
+    public void test1() {
+        Assert.assertEquals(4, solution(new int[]{6,4,3,4,3,6,4}));
+    }
+
+    @Test
+    public void test2() {
+        Assert.assertEquals(7, solution(new int[]{9,3,9,3,9,7,9}));
     }
 }

@@ -1,5 +1,8 @@
 package codility.l2_arrays;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -13,6 +16,13 @@ import java.util.stream.Stream;
  * @since 2020-11-02
  */
 public class CyclicRotation {
+    /**
+     * N and K are integers within the range [0..100];
+     * each element of array A is an integer within the range [−1,000..1,000].
+     * @param A
+     * @param K
+     * @return
+     */
     public static int[] solution(int[] A, int K) {
         return A.length == 0
                 ? A
@@ -21,7 +31,7 @@ public class CyclicRotation {
                     : Stream.of(
                         Arrays.copyOfRange(A, offset(K, A.length), A.length),
                         Arrays.copyOfRange(A, 0, offset(K, A.length))
-                ).flatMap(Stream::of).flatMapToInt(IntStream::of).toArray();
+                ).flatMapToInt(IntStream::of).toArray();
     }
 
     /**
@@ -34,10 +44,28 @@ public class CyclicRotation {
         return L - (K % L);
     }
 
-    public static void main(String[] args) {
-        for(int i=0;i<10; i++) {
-            Arrays.stream(solution(new int[]{3,4,5,3,5,6}, i)).forEach(System.out::print);
-            System.out.println();
-        }
+    @Test
+    public void test1() {
+        Assert.assertArrayEquals(new int[]{3,5,6,3,4,5}, solution(new int[]{3,4,5,3,5,6}, 3));
+    }
+
+    @Test
+    public void test2() {
+        Assert.assertArrayEquals(new int[]{9, 7, 6, 3, 8}, solution(new int[]{3, 8, 9, 7, 6}, 3));
+    }
+
+    @Test
+    public void test3() {
+        Assert.assertArrayEquals(new int[]{0, 0, 0}, solution(new int[]{0, 0, 0}, 1));
+    }
+
+    @Test
+    public void test4() {
+        Assert.assertArrayEquals(new int[]{1, 2, 3, 4}, solution(new int[]{1, 2, 3, 4}, 4));
+    }
+
+    @Test
+    public void test5() {
+        Assert.assertArrayEquals(new int[]{4, -10, 2, -30}, solution(new int[]{-10, 2, -30, 4}, 1));
     }
 }

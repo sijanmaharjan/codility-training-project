@@ -1,5 +1,8 @@
 package codility.l1_iterations;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.Arrays;
 
 /**
@@ -12,6 +15,10 @@ import java.util.Arrays;
  */
 public class BinaryGap {
 
+    /**
+     * @param N is an integer within the range [1..2,147,483,647].
+     * @return longest sequence of zeros
+     */
     public static int solution(int N) {
         return Arrays.stream(
                 Integer.toBinaryString(N)                        //converts to binary
@@ -23,7 +30,28 @@ public class BinaryGap {
                 .orElse(0);                                 // otherwise the gap is 0
     }
 
-    public static void main(String[] args) {
-        System.out.println(solution(529));
+    @Test
+    public void test1() {
+        Assert.assertEquals(2, solution(9));
+    }
+
+    @Test
+    public void test2() {
+        Assert.assertEquals(4, solution(529));
+    }
+
+    @Test
+    public void test3() {
+        Assert.assertEquals(1, solution(20));
+    }
+
+    @Test
+    public void test4() {
+        Assert.assertEquals(0, solution(15));
+    }
+
+    @Test
+    public void test5() {
+        Assert.assertEquals(0, solution(32));
     }
 }
