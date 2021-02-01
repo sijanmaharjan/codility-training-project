@@ -23,7 +23,7 @@ public class CyclicRotation {
      * @param K
      * @return
      */
-    public static int[] solution(int[] A, int K) {
+    public int[] solution(int[] A, int K) {
         return A.length == 0
                 ? A
                 : ((K % A.length) == 0)
@@ -40,7 +40,7 @@ public class CyclicRotation {
      * @param L array length
      * @return offset
      */
-    private static int offset(int K, int L){
+    private int offset(int K, int L){
         return L - (K % L);
     }
 

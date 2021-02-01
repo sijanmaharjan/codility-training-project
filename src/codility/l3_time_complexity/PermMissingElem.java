@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
  * @see <a href="https://app.codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/">Problem Detail</a>
  * @see <a href="https://app.codility.com/demo/results/trainingJ6JW7Q-ZQ4/">Codility report</a>
  * @author Sijan Maharjan
- * @since 2020-11-08
+ * @since 2021-01-31
  */
 public class PermMissingElem {
 
@@ -23,7 +23,7 @@ public class PermMissingElem {
      * @param A
      * @return
      */
-    public static int solution(int [] A){
+    public int solution(int [] A){
         int sum1 = IntStream.range(1, A.length+2).sum();
         int sum2 = Arrays.stream(A).sum();
         return sum1 - sum2;
@@ -36,7 +36,7 @@ public class PermMissingElem {
      * @param A
      * @return
      */
-    public static int solution2(int [] A){
+    public int solution2(int [] A){
         int sum1=0, sum2=0;
         for(int i=0; i<A.length; i++){
             sum2 += A[i];

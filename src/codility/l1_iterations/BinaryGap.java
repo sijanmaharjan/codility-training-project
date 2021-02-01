@@ -19,7 +19,7 @@ public class BinaryGap {
      * @param N is an integer within the range [1..2,147,483,647].
      * @return longest sequence of zeros
      */
-    public static int solution(int N) {
+    public int solution(int N) {
         return Arrays.stream(
                 Integer.toBinaryString(N)                        //converts to binary
                         .replace("0", " ")      // replaces 0s to whitespaces

@@ -20,7 +20,7 @@ public class FrogJmp {
      * @param D fixed distance
      * @return minimal number of jumps
      */
-    public static int solution(int X, int Y, int D){
+    public int solution(int X, int Y, int D){
         int totalJmp = (Y - X) / D;
         return  (X + totalJmp * D == Y)? totalJmp : totalJmp+1;
     }
